@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const lead = require("./lib/manager");
-const builder = require("./lib/engineer");
-const helper = require("./lib/intern");
+const manager = require("./lib/manager");
+const engineer = require("./lib/engineer");
+const intern = require("./lib/intern");
 const html = require("./src/htmlTemp");
 const validator = require("email-validator");
 
@@ -92,7 +92,7 @@ async function prompt() {
                 }, ]);
 
                 // Add to team Array
-                const engineer = new Engineer(response.name, response.id, response.email, response2.x);
+                const builder = new engineer(response.name, response.id, response.email, response2.x);
                 teamArray.push(engineer);
 
             } else if (response.role === "Intern") {
@@ -106,7 +106,7 @@ async function prompt() {
                 }, ]);
 
                 // Add to team Array
-                const intern = new Intern(response.name, response.id, response.email, response2.x);
+                const helper = new intern(response.name, response.id, response.email, response2.x);
                 teamArray.push(intern);
 
             } else if (response.role === "Manager") {
@@ -120,7 +120,7 @@ async function prompt() {
                 }, ]);
 
                 // Add to team Array
-                const manager = new Manager(response.name, response.id, response.email, response2.x);
+                const lead = new manager(response.name, response.id, response.email, response2.x);
                 teamArray.push(manager);
             }
 
