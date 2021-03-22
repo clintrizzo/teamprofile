@@ -1,12 +1,23 @@
 {
-  "name": "dist",
+  "name": "teamprofile",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clintrizzo/teamprofile.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clintrizzo/teamprofile/issues"
+  },
+  "homepage": "https://github.com/clintrizzo/teamprofile#readme"
 }
