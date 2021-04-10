@@ -5,7 +5,6 @@ const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const html = require("./src/htmlTemp");
-const validator = require("email-validator");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 const appendFileAsync = util.promisify(fs.appendFile);
@@ -46,26 +45,16 @@ async function prompt() {
                     type: "input",
                     name: "name",
                     message: "What is the employee's name?: ",
-                    validate: function validateName(name) {
-                        return name !== '';
-                    }
                 },
                 {
                     type: "input",
                     name: "id",
                     message: "Enter the employee's ID: ",
-                    validate: function validateName(name) {
-                        return name !== '';
-                    }
                 },
                 {
                     type: "input",
                     name: "email",
                     message: "Enter the employee's email address: ",
-                    // Validate that it is an email using email-validator
-                    validate: function validateEmail(name) {
-                        return validator.validate(name);
-                    }
                 },
                 {
                     type: "list",
@@ -86,12 +75,7 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What is the employee's github username?:",
-                    validate: function validateName(name) {
-                        return name !== '';
-                    },
                 }, ]);
-
-                // Add to team Array
                 const builder = new engineer(response.name, response.id, response.email, response2.x);
                 teamArray.push(engineer);
 
@@ -100,12 +84,7 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What school is the employee attending?:",
-                    validate: function validateName(name) {
-                        return name !== '';
-                    },
                 }, ]);
-
-                // Add to team Array
                 const helper = new intern(response.name, response.id, response.email, response2.x);
                 teamArray.push(intern);
 
@@ -114,12 +93,7 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What is the employee's office number?:",
-                    validate: function validateName(name) {
-                        return name !== '';
-                    },
                 }, ]);
-
-                // Add to team Array
                 const lead = new manager(response.name, response.id, response.email, response2.x);
                 teamArray.push(manager);
             }
