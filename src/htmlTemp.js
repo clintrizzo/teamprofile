@@ -21,6 +21,7 @@ const generateHTML = function(teamString) {
         ${teamString} 
     </div>
 </div>
+
 </body>
 </html>`
 
@@ -47,7 +48,7 @@ const generateCard = function(arr) {
         <div class="card-body">
             <ul class="list-unstyled">
                 <li>Employee ID: ${arr.id}</li>
-                <li>Email: <a href="${arr.email}">${arr.email}</a></li>
+                <li>Email: <a href="mailto:${arr.email}">${arr.email}</a></li>
                 <li>${roleInfo}</li>
             </ul>
         </div>

@@ -1,14 +1,14 @@
-const Intern = require("../lib/Intern");
+const Intern = require("../lib/intern");
 
 test("Set School via the constructor argument", () => {
-    const testValue = "Intern";
+    const testValue = "Trilogy";
     const emp = new Intern("Danny", 1, "test@valormm.com", testValue);
     expect(emp.school).toBe(testValue);
 });
 
 test("getRole() functions correctly", () => {
-    const testValue = "Intern";
-    const emp = new Intern("Joseph", 1, "test@valormm.com", "Intern");
+    const testValue = "Trilogy";
+    const emp = new Intern("Danny", 1, "test@valormm.com", testValue);
     expect(emp.getRole()).toBe(testValue);
 });
 

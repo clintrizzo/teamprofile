@@ -1,4 +1,4 @@
-const Employee = require("../lib/Employee");
+const Employee = require("../lib/employee");
 
 test("New Employee created", () => {
     const emp = new Employee();
@@ -19,7 +19,7 @@ test("Set ID via constructor argument", () => {
 
 test("Set Email via constructor argument", () => {
     const testValue = "test@valormm.com";
-    const emp = new Employee("Jose", 1, testValue);
+    const emp = new Employee("Clint", 1, testValue);
     expect(emp.email).toBe(testValue);
 });
 
@@ -31,7 +31,7 @@ test("Get name via getName()", () => {
 
 test("Get ID via getId()", () => {
     const testValue = 61;
-    const emp = new Employee("Jose", testValue);
+    const emp = new Employee("Clint", testValue);
     expect(emp.getId()).toBe(testValue);
 });
 

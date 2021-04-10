@@ -1,4 +1,4 @@
-const Engineer = require("../lib/Engineer");
+const Engineer = require("../lib/engineer");
 
 test("Set GitHub Account via constructor argument", () => {
     const testValue = "GitHubUser";
@@ -8,7 +8,7 @@ test("Set GitHub Account via constructor argument", () => {
 
 test("getRole() functions correctly", () => {
     const testValue = "Engineer";
-    const emp = new Engineer("Cameron", 1, "test@valormm.com", "GitHubUser");
+    const emp = new Engineer("Cameron", 1, "test@valormm.com", testValue);
     expect(emp.getRole()).toBe(testValue);
 });
 

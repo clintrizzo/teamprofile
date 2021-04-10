@@ -1,18 +1,21 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
 const util = require("util");
 const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const html = require("./src/htmlTemp");
+const path = require("path");
+const fs = require("fs");
 
-const writeFileAsync = util.promisify(fs.writeFile);
-const appendFileAsync = util.promisify(fs.appendFile);
+const OUTPUT_DIR = path.resolve(__dirname, "output")
+const outputPath = path.join(OUTPUT_DIR, "index.html");
+
+const render = require("./src/htmlTemp.js");
 
 let teamArray = [];
 let teamString = "";
 
-async function main() {
+async function team() {
     try {
         await prompt()
 
@@ -24,8 +27,6 @@ async function main() {
 
         console.clear();
         console.log("Generating index.html file....");
-
-        writeFileAsync("./dist/index.html", finalHtml);
 
         console.clear();
         console.log("index.html file created successfully");
@@ -45,16 +46,25 @@ async function prompt() {
                     type: "input",
                     name: "name",
                     message: "What is the employee's name?: ",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 },
                 {
                     type: "input",
                     name: "id",
                     message: "Enter the employee's ID: ",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 },
                 {
                     type: "input",
                     name: "email",
                     message: "Enter the employee's email address: ",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 },
                 {
                     type: "list",
@@ -75,8 +85,11 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What is the employee's github username?:",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 }, ]);
-                const builder = new engineer(response.name, response.id, response.email, response2.x);
+                const engineer = new engineer(response.name, response.id, response.email, response2.x);
                 teamArray.push(engineer);
 
             } else if (response.role === "Intern") {
@@ -84,8 +97,11 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What school is the employee attending?:",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 }, ]);
-                const helper = new intern(response.name, response.id, response.email, response2.x);
+                const intern = new intern(response.name, response.id, response.email, response2.x);
                 teamArray.push(intern);
 
             } else if (response.role === "Manager") {
@@ -93,8 +109,11 @@ async function prompt() {
                     type: "input",
                     name: "x",
                     message: "What is the employee's office number?:",
+                    validate: function validateName(name) {
+                        return name !== '';
+                    }
                 }, ]);
-                const lead = new manager(response.name, response.id, response.email, response2.x);
+                const manager = new manager(response.name, response.id, response.email, response2.x);
                 teamArray.push(manager);
             }
 
@@ -113,5 +132,12 @@ async function prompt() {
         }, ]);
 
     } while (responseDone.finish === "Yes");
+
+    function team() {
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+    }
 }
-main();
+team();
