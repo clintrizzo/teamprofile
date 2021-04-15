@@ -7,14 +7,14 @@
         "lib": "lib"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/clintrizzo/teamprofile.git"
     },
     "keywords": [],
-    "author": "",
+    "author": "Clint Rizzo",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/clintrizzo/teamprofile/issues"
