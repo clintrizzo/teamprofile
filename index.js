@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const manager = require("./lib/manager");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const html = require("./src/htmlTemp");
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -11,7 +11,7 @@ const appendFileAsync = util.promisify(fs.appendFile);
 
 let teamArray = [];
 let teamString = ``;
-async function team() {
+async function main() {
     try {
         await prompt()
 
@@ -60,9 +60,6 @@ async function prompt() {
                     type: "input",
                     name: "email",
                     message: "Enter the employee's email address: ",
-                    validate: function validateEmail(name) {
-                        return name !== '';
-                    }
                 },
                 {
                     type: "list",
@@ -87,7 +84,7 @@ async function prompt() {
                         return name !== '';
                     }
                 }, ]);
-                const engineer = new engineer(response.name, response.id, response.email, response2.x);
+                const engineer = new Engineer(response.name, response.id, response.email, response2.x);
                 teamArray.push(engineer);
 
             } else if (response.role === "Intern") {
@@ -99,7 +96,7 @@ async function prompt() {
                         return name !== '';
                     }
                 }, ]);
-                const intern = new intern(response.name, response.id, response.email, response2.x);
+                const intern = new Intern(response.name, response.id, response.email, response2.x);
                 teamArray.push(intern);
 
             } else if (response.role === "Manager") {
@@ -111,7 +108,7 @@ async function prompt() {
                         return name !== '';
                     }
                 }, ]);
-                const manager = new manager(response.name, response.id, response.email, response2.x);
+                const manager = new Manager(response.name, response.id, response.email, response2.x);
                 teamArray.push(manager);
             }
 
@@ -131,4 +128,5 @@ async function prompt() {
 
     } while (responseDone.finish === "Yes");
 }
-team();
+
+main();
