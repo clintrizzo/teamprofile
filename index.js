@@ -8,7 +8,7 @@ const html = require("./src/htmlTemp");
 
 
 let teamArray = [];
-let teamString = "";
+let teamString = ``;
 
 const writeFileAsync = util.promisify(fs.writeFile);
 const appendFileAsync = util.promisify(fs.appendFile);
