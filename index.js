@@ -24,7 +24,7 @@ async function team() {
         console.clear();
         console.log("Generating index.html file....");
 
-        riteFileAsync("./dist/index.html", finalHtml);
+        writeFileAsync("./dist/index.html", finalHtml);
 
         console.clear();
         console.log("index.html file created successfully");
