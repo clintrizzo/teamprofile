@@ -8,6 +8,7 @@ const generateHTML = function(teamString) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Team Portfolio</title>
+<link rel="stylesheet" href="style.css">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -51,11 +52,11 @@ const generateCard = function(arr) {
 
     return `
     
-<div class="col-md-4 col-sm-6 col-12 col-lg-3">    
-    <div class="card shadow-lg mb-5 bg-white rounded">
+    <div class="col-md-4 col-sm-6 col-12 col-lg-3">
+    <div class="card mb-5 bg-white">
         <div class="card-header bg-primary">
             <h4 class="text-white text-center">${arr.name}</h4>  
-            <h4 class="text-white text-center">${positionIcon}</i> ${arr.title}</h4>
+            <h4 class="text-white text-center">${arr.title}</h4>
         </div>
         <div class="card-body">
             <ul class="list-unstyled">
