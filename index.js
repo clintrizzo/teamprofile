@@ -6,12 +6,11 @@ const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const html = require("./src/htmlTemp");
 
+const writeFileAsync = util.promisify(fs.writeFile);
+const appendFileAsync = util.promisify(fs.appendFile);
 
 let teamArray = [];
 let teamString = ``;
-
-const writeFileAsync = util.promisify(fs.writeFile);
-const appendFileAsync = util.promisify(fs.appendFile);
 async function team() {
     try {
         await prompt()
@@ -24,6 +23,8 @@ async function team() {
 
         console.clear();
         console.log("Generating index.html file....");
+
+        riteFileAsync("./dist/index.html", finalHtml);
 
         console.clear();
         console.log("index.html file created successfully");
@@ -59,7 +60,7 @@ async function prompt() {
                     type: "input",
                     name: "email",
                     message: "Enter the employee's email address: ",
-                    validate: function validateName(name) {
+                    validate: function validateEmail(name) {
                         return name !== '';
                     }
                 },

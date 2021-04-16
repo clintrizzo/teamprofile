@@ -1,32 +1,32 @@
 {
-    "name": "teamprofile",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "directories": {
-        "lib": "lib"
-    },
-    "scripts": {
-        "test": "jest"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/clintrizzo/teamprofile.git"
-    },
-    "keywords": [],
-    "author": "Clint Rizzo",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/clintrizzo/teamprofile/issues"
-    },
-    "homepage": "https://github.com/clintrizzo/teamprofile#readme",
-    "dependencies": {
-        "inquirer": "^8.0.0",
-        "node": "^14.15.0",
-        "util": "^0.12.3",
-        "validate": "^5.1.0"
-    },
-    "devDependencies": {
-        "jest": "^26.6.3"
-    }
+  "name": "teamprofile",
+  "version": "1.0.0",
+  "description": "This project is a node.js application that is used for user input to create a index.html file that displays members of a development team. The user can populate the development team by going through the terminal and selecting a member of the team by including their name, position ID, and job that they do.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clintrizzo/teamprofile.git"
+  },
+  "keywords": [],
+  "author": "Clint Rizzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clintrizzo/teamprofile/issues"
+  },
+  "homepage": "https://github.com/clintrizzo/teamprofile#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "node": "^14.15.0",
+    "util": "^0.12.3",
+    "validate": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
